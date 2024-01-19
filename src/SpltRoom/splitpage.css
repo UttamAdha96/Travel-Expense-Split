@@ -1,0 +1,133 @@
+.Poster{
+    width: 100%;
+    height:35rem;
+    /* position: absolute;
+    top: 0%; */
+}
+.heading-place{
+    height: 7rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 3rem;
+}
+.Poster img{
+    width: 100%;
+    height:35rem;
+}
+.content{
+    background: #f2f2f2;
+    display: flex;
+    /* position: absolute;
+    top: 35rem;
+    width: 100%; */
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.Split-content{
+    background: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.Upper-boxs{
+    width: 20rem;
+    display: flex;
+    padding: 1rem;
+    margin: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    color: #282727;
+    /* border: 1px solid black; */
+}
+.budget__title {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+.budget__value {
+    font-weight: 300;
+    font-size: 46px;
+    text-align: center;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.budget__total,
+.budget__expenses {
+  padding: 12px;
+  text-transform: uppercase;
+}
+
+.budget__total {
+  margin-bottom: 10px;
+  background-color: #28B9B5;
+}
+
+.budget__expenses {
+  background-color: #FF5049;
+}
+
+.budget__total--text,
+.budget__expenses--text {
+  float: left;
+  font-size: 13px;
+  color: #444;
+  margin-top: 2px;
+}
+
+.budget__total--value,
+.budget__expenses--value {
+  letter-spacing: 1px;
+  float: left;
+}
+.right {
+    float: right;
+  }
+
+
+
+
+/* Bottom all Expenses lists and person list showing  */
+
+.Middle-boxs{
+    margin: 2rem;
+    padding: 1rem;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.All-exp{
+    width: 48%;
+    /* background: white;
+    box-shadow: 5px 5px 5px #888888; */
+    border-radius: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.All-exp > h3{
+    color: rgb(237, 68, 68);
+}
+.Person-box{
+    width: 48%;
+    /* background: white;
+    box-shadow: 5px 5px 5px #888888; */
+    border-radius: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.Person-box > h3{
+    color: rgb(67, 190, 190);
+}
+

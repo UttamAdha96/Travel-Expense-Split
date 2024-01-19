@@ -1,0 +1,43 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+    justify-content: space-between;
+    padding-right: 3%;
+    padding-left: 3%;
+    /* margin-top: 1rem; */
+    /* border-radius: 10px; */
+    position: fixed;
+    /* position: sticky; */
+    overflow-x: hidden;
+    /* left: 1.5rem; */
+    /* background: rgb(136, 136, 136); */
+    backdrop-filter: blur(50px);
+    width: 94%;
+}
+.logo > a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.side-nav{
+    display: flex;
+    justify-content: flex-start;
+}
+#log-out{
+    display: none;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+li {
+    margin: 1.3rem;
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 1px;
+}

@@ -1,0 +1,12 @@
+.intro-bg{
+    background-image: url("bg1.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 100%;
+    height:35rem;
+}
+
+/* .intro-bg img{
+    width: 100%;
+    height: 42.5rem;
+} */

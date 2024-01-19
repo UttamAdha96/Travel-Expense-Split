@@ -1,0 +1,65 @@
+
+/* Expense box CSS to be shift to new component */
+.Exp-detail{
+    /* border: 1px solid black; */
+    border-bottom: 1px solid rgb(51, 50, 50);
+    width: 90%;
+    height: 7rem;
+    margin-bottom: 10px;
+    display: flex;
+    border-radius: 0.6rem;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    /* overflow:hidden; */
+}
+/* .Exp-detail:hover{
+    border: 1px solid rgb(51, 50, 50);
+} */
+.Add-exp{
+    border: 1px solid rgb(51, 50, 50);
+    width: 90%;
+    height: 2rem;
+    margin-bottom: 10px;
+    border-radius: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.Add-exp:hover{
+    background: rgb(237, 68, 68);
+    border: none;
+}
+.Add-exp p{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+.left-det{
+    margin: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.Exp-other-det{
+    padding: 0%;
+    margin: 0%;
+}
+.Exp-heading{
+    padding: 0%;
+    margin:0% ;
+}
+.right-det{
+    margin: 5px;
+    padding: 5px;
+    font:bolder;
+}
+.right-det h3{
+    padding: 0%;
+    margin:0% ;
+}

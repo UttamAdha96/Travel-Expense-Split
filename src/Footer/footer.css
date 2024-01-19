@@ -1,0 +1,16 @@
+
+.footer-bottom {
+    background-color: #34312e;
+    padding: 10px 0;
+    height: 25px;
+    width: 100%;
+    text-align: center;
+    position:inherit;
+    bottom: 0;
+ }
+ 
+ .footer-bottom p {
+    margin: 0;
+    font-size: 16px;
+    color: #fff;
+ }
