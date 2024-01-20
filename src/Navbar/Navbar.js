@@ -57,7 +57,7 @@ const Navbar = () => {
     <div>
     <div className='navbar'>
       <div className='logo'>
-        <Link to='/'><h3>Travel Expense Split</h3></Link>
+        <Link to='/'><h3>IM-Split</h3></Link>
       </div>
 {isLoggedIn? (
   <div id='log-out' className='side-nav'> 

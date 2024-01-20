@@ -10,7 +10,7 @@ export default class footer extends Component {
               <div className="container">
                 <div className="row">
                     <div className="col-md-12">
-                      <p>All Rights Reserved under "Travel Expenses Split" project made by Uttam Adha  &copy; 2023</p>
+                      <p>All Rights Reserved under "IM-Split" project made by Team VictoryX  &copy; 2024</p>
                     </div>
                 </div>
               </div>

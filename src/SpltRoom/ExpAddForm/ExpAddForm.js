@@ -36,6 +36,10 @@ const ExpAddForm = ({ hideform, addingExp}) => {
         // Perform any necessary action with the collected tripDetails, like sending it to a server or storing it in state.
         console.log(budgetDetails);
       };
+      const razorpaylink = "https://rzp.io/l/3BTBHFrY";
+  const openpayment = () => {
+  window.open(razorpaylink, '_blank')
+  }
   return (<>
   <div className="overlay">
       <div className="form-container">
@@ -60,6 +64,8 @@ const ExpAddForm = ({ hideform, addingExp}) => {
             <input type="text" name='DividedTo'  value={budgetDetails.DividedTo} onChange={handleExpChange} />
           
           <button  type="submit">Add Exp</button> 
+          <button type="submit">Add Exp</button> 
+          <button onClick={openpayment} type="submit">Pay Now</button> 
         </form>
       </div>
     </div>
