@@ -9,25 +9,7 @@ const Navbar = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [modalType, setModalType] = useState('');
 
-  const handleLogin = async (credentials) => {
-    try {
-      const response = await fetch('http://127.0.0.1:8000/admin/auth/user/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(credentials),
-      });
   
-      if (response.ok) {
-        setLoggedIn(true);
-      } else {
-        // Handle login error
-      }
-    } catch (error) {
-      console.error('Error during login:', error);
-    }
-  };
 
   const handleLogout = async () => {
     try {

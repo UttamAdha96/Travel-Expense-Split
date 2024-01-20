@@ -64,7 +64,6 @@ const ExpAddForm = ({ hideform, addingExp}) => {
             <input type="text" name='DividedTo'  value={budgetDetails.DividedTo} onChange={handleExpChange} />
           
           <button  type="submit">Add Exp</button> 
-          <button type="submit">Add Exp</button> 
           <button onClick={openpayment} type="submit">Pay Now</button> 
         </form>
       </div>

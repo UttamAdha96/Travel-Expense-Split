@@ -14,7 +14,7 @@ const SplitPage = ({tripname}) => {
   // Expense form show and card data
   const [showvar,setShowvar]=useState(false);
     const [EXPdetail, setEXPdetail] = useState([
-        {id:1, expName :'Dinner' ,expDate:'13-/12/23', paidPerson:'Krishna' ,expContri :'All',  expPrice:'1000'},
+        {id:1, expName :'Dinner' ,expDate:'13-/12/23', paidPerson:'Uttam' ,expContri :'All',  expPrice:'1000'},
     ]);
 
     //Person add form and card data
@@ -56,12 +56,10 @@ const SplitPage = ({tripname}) => {
         handleTotalExpenseChange(expense_value     + parseFloat(expPrice) || 0);
         console.log('Request Payload:', newExp);
         try {
-          const response = await axios.post('http://127.0.0.1:8000/api/travel-expenses/', {
-              method: 'POST',
+          const response = await axios.post('http://127.0.0.1:8000/api/travel-expenses/', newExp, {
               headers: {
                   'Content-Type': 'application/json',
               },
-              body: JSON.stringify(newExp),
           });
   
           if (!response.ok) {
@@ -83,24 +81,23 @@ const SplitPage = ({tripname}) => {
       };
       setPERSONDetail([...PERSONdetail, newPer]);
       handleTotalAmountAddedChange(newPer.TotalMoney);
-      handleTotalAmountAddedChange(total_value + parseFloat(TotalAmount) || 0);
+      handleTotalAmountAddedChange(total_value + parseFloat(newPer.TotalMoney) || 0);
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/persons/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newPer),
+        const response = await axios.post('http://127.0.0.1:8000/api/persons/', newPer, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
         });
-
+      
         if (!response.ok) {
-            throw new Error('Failed to add person');
+          throw new Error('Failed to add person');
         }
-
-        handleTotalAmountAddedChange(total_value + newPer.TotalMoney);
-    } catch (error) {
+      
+        // Assuming handleTotalAmountAddedChange is correctly updating the state
+        handleTotalAmountAddedChange(total_value + parseFloat(newPer.TotalMoney) || 0);
+      } catch (error) {
         console.error('Error adding person:', error.message);
-    }
+      }
   }; 
 
   // useEffect(() => {
