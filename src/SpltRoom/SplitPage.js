@@ -20,7 +20,7 @@ const SplitPage = ({tripname}) => {
     const [PERSONdetail, setPERSONDetail] = useState([])
 
     // split calculation:
-    const [splitCalculation, setSplitCalculation] = useState({});
+    //const [splitCalculation, setSplitCalculation] = useState({});
 
     // average expense calculaton
     const [average_value, setAverage_value] = useState(0);
@@ -108,11 +108,11 @@ const SplitPage = ({tripname}) => {
       .then(response => setPERSONDetail(response.data))
       .catch(error => console.error('Error fetching persons:', error));
   }, []);
-  useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/split-calculation/')
-      .then(response => setSplitCalculation(response.data))
-      .catch(error => console.error('Error fetching split calculation:', error));
-  }, []);
+  // useEffect(() => {
+  //   axios.get('http://127.0.0.1:8000/api/split-calculation/')
+  //     .then(response => setSplitCalculation(response.data))
+  //     .catch(error => console.error('Error fetching split calculation:', error));
+  // }, []);
 
   
 
