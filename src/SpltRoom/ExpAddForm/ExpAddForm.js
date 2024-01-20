@@ -36,7 +36,7 @@ const ExpAddForm = ({hideform, addingExp}) => {
         // Perform any necessary action with the collected tripDetails, like sending it to a server or storing it in state.
         console.log(budgetDetails);
       };
-      const razorpaylink = "https://rzp.io/l/wUNI9o4XM";
+      const razorpaylink = "https://rzp.io/l/3BTBHFrY";
   const openpayment = () => {
   window.open(razorpaylink, '_blank')
   }
