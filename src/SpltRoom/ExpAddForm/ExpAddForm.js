@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import React from 'react'
 
-const ExpAddForm = ({hideform, addingExp}) => {
+const ExpAddForm = ({ hideform, addingExp}) => {
     const [budgetDetails, setBudgetDetails] = useState({
         WhatThingh: '',
         date: '',
@@ -59,7 +59,7 @@ const ExpAddForm = ({hideform, addingExp}) => {
           <label> Split To: </label>
             <input type="text" name='DividedTo'  value={budgetDetails.DividedTo} onChange={handleExpChange} />
           
-          <button type="submit">Add Exp</button> 
+          <button  type="submit">Add Exp</button> 
         </form>
       </div>
     </div>

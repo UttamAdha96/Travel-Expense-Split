@@ -7,26 +7,25 @@ import PersonDetail from './PersonDetail/PersonDetail'
 import Banaras from '../pics/banaras.jpg'
 import AddPerson from './PersonDetail/AddPerson'
 import PersonAddForm from './PersonAddForm/PersonAddForm'
+import axios from 'axios';
 
 const SplitPage = ({tripname}) => {
 
   // Expense form show and card data
   const [showvar,setShowvar]=useState(false);
     const [EXPdetail, setEXPdetail] = useState([
-        {id:1, expName :'Dinner' ,expDate:'13-/12/23', paidPerson:'Sparsh' ,expContri :'All',  expPrice:'1000'},
-        {id:2, expName :'Taxi' ,expDate:'14-/12/23', paidPerson:'Uttam' ,expContri :'All',  expPrice:'500'},
+        {id:1, expName :'Dinner' ,expDate:'13-/12/23', paidPerson:'Krishna' ,expContri :'All',  expPrice:'1000'},
     ]);
 
     //Person add form and card data
     const [showPerform, setShowPerForm] = useState(false);
     const [PERSONdetail, setPERSONDetail] = useState([
-      {id:1, PersonName :'Sparsh' , TotalMoney:'4200', LeftMoney:'2000'},
-      {id:2, PersonName :'Uttam' , TotalMoney:'4000', LeftMoney:'500'},
+      {id:1, PersonName :'Uttam' , TotalMoney:'4200'},
     ])
 
     // average expense calculaton
     const [average_value, setAverage_value] = useState(0);
-    const [total_value, setTotal_value] = useState(0);
+    const [total_value, setTotal_value] = useState(0);  
     const [expense_value, setExpense_value] = useState(0);
     
     useEffect(() => {
@@ -43,7 +42,7 @@ const SplitPage = ({tripname}) => {
     };
 
     //Add expense card
-    const addExp = (expName, expDate, expPrice, paidPerson, expContri) => {
+    const addExp = async (expName, expDate, expPrice, paidPerson, expContri) => {
         const newExp = {
             // id: Date.now(),
             expName: expName,
@@ -52,21 +51,68 @@ const SplitPage = ({tripname}) => {
             expContri: expContri,
             expPrice: expPrice,
         };
-        setEXPdetail([...EXPdetail, newExp])
-        handleTotalExpenseChange(newExp.expPrice)
+        setEXPdetail([...EXPdetail, newExp]);
+        handleTotalExpenseChange(newExp.expPrice);
+        handleTotalExpenseChange(expense_value     + parseFloat(expPrice) || 0);
+        console.log('Request Payload:', newExp);
+        try {
+          const response = await axios.post('http://127.0.0.1:8000/api/travel-expenses/', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(newExp),
+          });
+  
+          if (!response.ok) {
+              throw new Error('Failed to add travel expense');
+          }
+  
+          handleTotalExpenseChange(expense_value + newExp.expPrice);
+      } catch (error) {
+          console.error('Error adding travel expense:', error.message);
+      }
     };
 
     //Add Person card
-    const addPer = (PersonName, TotalAmount, LeftAmount) => {
+    const addPer = async (PersonName, TotalAmount) => {
       const newPer = {
           // id: Date.now(),
           PersonName: PersonName,
           TotalMoney: TotalAmount,
-          LeftMoney: LeftAmount,
       };
-      setPERSONDetail([...PERSONdetail, newPer])
-      handleTotalAmountAddedChange(newPer.TotalMoney)
+      setPERSONDetail([...PERSONdetail, newPer]);
+      handleTotalAmountAddedChange(newPer.TotalMoney);
+      handleTotalAmountAddedChange(total_value + parseFloat(TotalAmount) || 0);
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/persons/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newPer),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to add person');
+        }
+
+        handleTotalAmountAddedChange(total_value + newPer.TotalMoney);
+    } catch (error) {
+        console.error('Error adding person:', error.message);
+    }
   }; 
+
+  // useEffect(() => {
+  //   axios.get('http://127.0.0.1:8000/api/person/')
+  //     .then((response) => response.json())
+      
+  //     .then((data) => {
+  //       setPERSONDetail(data);
+  //     })
+  //     .catch((error) => console.error('Error fetching split calculation:', error));
+  // }, []);
+  
 
   //Expenses Form showning and hiding
     const showForm=()=>{
@@ -110,8 +156,6 @@ const SplitPage = ({tripname}) => {
           <div clasNames="budget__expenses--value">- {expense_value}</div>
         </div>
       </div>
-      {/* <div className='box-budget'>Left Budget: 21000</div>
-      <div className='box-budget'>Total Budget: 28000</div> */}
     </div>
     <div className='Middle-boxs'>
       <div className='All-exp'>

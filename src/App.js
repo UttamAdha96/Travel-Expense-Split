@@ -28,7 +28,6 @@ function App() {
         <Route path='/SplitSection' element={ triptitle.map((title) =>(<SplitPage key={title.id} tripname={title.tripname} />))
           }/>
       </Route>
-      {/* <Route path='/LoginPage' element={<Login/>}/> */}
     </Routes>
 
     

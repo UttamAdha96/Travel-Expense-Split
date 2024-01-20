@@ -39,7 +39,7 @@ const Home = ({TripHeading}) => {
   <div className='intro-bg'>
         {/* <img src={bg} alt='..?'/> */}
     </div>
-<div className='trip-content'>
+<div id='Home-add-trip' className='trip-content'>
     <div className='heading'>- All Trips -</div>
     <div className='all-trips'>
         {posts.map((post) => (

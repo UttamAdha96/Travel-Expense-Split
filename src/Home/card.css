@@ -7,6 +7,9 @@
     top: 35rem; */
     width: 100%;
 }
+/* #Home-add-trip{
+    display: none;
+} */
 .intro-bg{
     background-image: url("bg1.png");
     /* position: absolute;
