@@ -16,29 +16,29 @@ class SplitCalculation(generics.GenericAPIView):
     serializer_class = PersonSerializer
 
     def get(self, request):
-        TravelExpense = TravelExpense.objects.all()
-        Person = Person.objects.all()
+        travel_expenses = TravelExpense.objects.all()
+        persons = Person.objects.all()
 
-        total_expense = TravelExpense.aggregate(Sum('expPrice'))['expPrice__sum']
-        average_contribution = total_expense / Person.count()
+        total_expense = travel_expenses.aggregate(Sum('expPrice'))['expPrice__sum']
+        average_contribution = total_expense / persons.count()
 
         contributions = {}
         net_amount_owed = {}
 
-        for Person in Person:
-            contributions[Person.PersonName] = 0
-            net_amount_owed[Person.PersonName] = 0
+        for persons in persons:
+            contributions[persons.PersonName] = 0
+            net_amount_owed[persons.PersonName] = 0
 
-        for TravelExpense in TravelExpense:
-            share = TravelExpense.expPrice / TravelExpense.expContri.count()
+        for travel_expenses in travel_expenses:
+            share = travel_expenses.expPrice / len(travel_expenses.expContri)
 
-            contributions[TravelExpense.paidPerson] += TravelExpense.expPrice
+            contributions[travel_expenses.paidPerson] += travel_expenses.expPrice
 
-            for participant in TravelExpense.expContri.all():
+            for participant in travel_expenses.expContri.all():
                 contributions[participant.PersonName] -= share
 
-        for Person in Person:
-            net_amount_owed[Person.PersonName] = contributions[Person.PersonName] - average_contribution
+        for persons in persons:
+            net_amount_owed[persons.PersonName] = contributions[persons.PersonName] - average_contribution
 
         while any(amount > 0.01 for amount in net_amount_owed.values()):
             payer = max(net_amount_owed, key=net_amount_owed.get)

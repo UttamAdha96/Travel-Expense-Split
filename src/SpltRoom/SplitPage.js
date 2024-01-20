@@ -13,15 +13,14 @@ const SplitPage = ({tripname}) => {
 
   // Expense form show and card data
   const [showvar,setShowvar]=useState(false);
-    const [EXPdetail, setEXPdetail] = useState([
-        {id:1, expName :'Dinner' ,expDate:'13-/12/23', paidPerson:'Uttam' ,expContri :'All',  expPrice:'1000'},
-    ]);
+    const [EXPdetail, setEXPdetail] = useState([]);
 
     //Person add form and card data
     const [showPerform, setShowPerForm] = useState(false);
-    const [PERSONdetail, setPERSONDetail] = useState([
-      {id:1, PersonName :'Uttam' , TotalMoney:'4200'},
-    ])
+    const [PERSONdetail, setPERSONDetail] = useState([])
+
+    // split calculation:
+    const [splitCalculation, setSplitCalculation] = useState({});
 
     // average expense calculaton
     const [average_value, setAverage_value] = useState(0);
@@ -99,16 +98,22 @@ const SplitPage = ({tripname}) => {
         console.error('Error adding person:', error.message);
       }
   }; 
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/api/travel-expenses/')
+      .then(response =>  setEXPdetail(response.data))
+      .catch(error => console.error('Error fetching travel expenses:', error));
+  }, []);
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/api/persons/')
+      .then(response => setPERSONDetail(response.data))
+      .catch(error => console.error('Error fetching persons:', error));
+  }, []);
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/api/split-calculation/')
+      .then(response => setSplitCalculation(response.data))
+      .catch(error => console.error('Error fetching split calculation:', error));
+  }, []);
 
-  // useEffect(() => {
-  //   axios.get('http://127.0.0.1:8000/api/person/')
-  //     .then((response) => response.json())
-      
-  //     .then((data) => {
-  //       setPERSONDetail(data);
-  //     })
-  //     .catch((error) => console.error('Error fetching split calculation:', error));
-  // }, []);
   
 
   //Expenses Form showning and hiding
@@ -158,7 +163,7 @@ const SplitPage = ({tripname}) => {
       <div className='All-exp'>
         <h3>- All Expenses- </h3>
         {EXPdetail.map((Exp) => (
-          <ExpDetail key={Exp.id} expName={Exp.expName}  expDate={Exp.expDate}  paidPerson={Exp.paidPerson}  expContri ={Exp.expContri}  expPrice={Exp.expPrice}/>
+          <ExpDetail key={Exp.id} expName={Exp.expName}  expDate={Exp.expDate}  paidPerson={Exp.paidPerson}  expContri ={Exp.expContri}  expPrice={Exp.expPrice} />
         ))}
         
         <AddExp viewform={showForm}/>
@@ -176,6 +181,8 @@ const SplitPage = ({tripname}) => {
         {
           showPerform&&<PersonAddForm hidePerform={hideform2} addingPer = {addPer} />
         }
+        {/* <h2>Split Calculation</h2>
+      <pre>{JSON.stringify(splitCalculation, null, 2)}</pre> */}
       </div>
     </div>
 
