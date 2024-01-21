@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+<h1>IM-Split</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>OverView: Travel Expenses Split Web Application</h2>
 
-## Available Scripts
+ Travel Expenses Split website is web platform built on ReactJS, where users can a Split expenses and adding person for trip and then settling bills for any owed amount. The code in this repository covers front end and backend of this project.
 
-In the project directory, you can run:
+<h2>Quick Start</h2>
 
-### `npm start`
+<h3>Clone</h3>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Clone this repo to your local machine using https://github.com/UttamAdha96/Travel-Expense-Split.git
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h3>Dependencies and installation</h3>
+<ul>
+- Install server dependencies
 
-### `npm test`
+```bash
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Front End
+  axios
+  ```bash
+  npm install --save axios
+   ```
+  react
+  ```bash
+  npm create-react-app
+   ```
+  react-router-dom
+  ```bash
+  npm install --save react-router-dom
+   ```
+  socket.io-client
+  ```bash
+  npm i socket.io-client
+  ```
+  redux
+  ```bash
+  npm i redux
+  ```
+  react-redux
+  ```bash
+  npm i react-redux
+  ```
+  moment
+  ```bash
+  npm i moment
+  ```
+  material-ui/core
+  ```bash
+  npm i @material-ui/core
+  ```
+  material-ui/icons
+  ```bash
+  npm i @material-ui/icons
+  ```
+  material-table
+  ```bash
+  npm i material-table
+  ```
+  material-ui-pickers
+  ```bash
+  npm i material-ui-pickers
+  ```
 
-### `npm run build`
+- Run React from root
+```bash
+npm run start
+```
+</ul>
+<h1>1) Home page </h1>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![image](https://github.com/UttamAdha96/Travel-Expense-Split/assets/101659796/70dbe299-3b3f-41a3-a3a4-fede6504eb53)
+![image](https://github.com/UttamAdha96/Travel-Expense-Split/assets/101659796/3ee22fd4-e56f-4862-95ce-e009276fc9ca)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<h1>2) Split Page</h1>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://github.com/UttamAdha96/Travel-Expense-Split/assets/101659796/53c89c8d-b4a7-4aa2-9394-21dc9c61cd31)
+![image](https://github.com/UttamAdha96/Travel-Expense-Split/assets/101659796/954bec6f-17b7-4243-b28d-00862d45b67d)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h1>4) Login page</h1>
+![image](https://github.com/UttamAdha96/Travel-Expense-Split/assets/101659796/3caf9354-b3e6-4f2f-83a9-691c2d264bb3)
